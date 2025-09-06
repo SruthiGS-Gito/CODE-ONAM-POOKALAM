@@ -1,0 +1,292 @@
+/* ============================================================ */
+/*                  DIGITAL POOKALAM DESIGN                     */
+/*            Animated using rotating layers & gradients        */
+/* ============================================================ */
+
+/* ========== GLOBAL STYLES ========== */
+body {
+  /* Background gradient resembling sunset tones */
+  background: radial-gradient(circle, #ed931e, #672a2e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* RANGOLI BASE */
+.flower-of-life {
+  width: 80vw;
+  height: 80vw;
+  max-width: 500px;
+  max-height: 500px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle, #330033, #000);
+  box-shadow: 0 0 50px rgba(222, 0, 222, 0.3);
+  opacity: 0;
+  transform: scale(0.7);
+  animation: fadeInScale 2s ease-out forwards;
+}
+
+/* OUTER RECTANGLES */
+.outer-flower {
+  position: absolute;
+  top: 75px;
+  left: 75px;
+  width: 350px;
+  height: 350px;
+  animation: rotateFlower 20s linear infinite;
+  transform-origin: center center;
+}
+ 
+.rectangle {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #fbf300, #fbf300);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  border-radius: 20px;
+}
+
+/* ========== ANIMATION: Rotating Flower Pattern ========== */
+/* Rotates each layer (hexagons, rectangles, borders) infinitely */
+@keyframes rotateFlower {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.rect1 { transform: rotate(0deg);}
+.rect2 { transform: rotate(10deg);}
+.rect3 { transform: rotate(20deg);}
+.rect4 { transform: rotate(30deg);}
+.rect5 { transform: rotate(40deg);}
+.rect6 { transform: rotate(50deg);}
+.rect7 { transform: rotate(60deg);}
+.rect8 { transform: rotate(70deg);}
+.rect9 { transform: rotate(80deg);}
+
+/* ========== OUTER DECORATIVE CIRCLE (Layer 1) ========== */
+/* This is the decorative outermost circle around the rotating rectangles */
+.rect-circle1 {
+  /* styles */
+  background: radial-gradient(circle, #ff6600, #be3709);
+  width: 449px;
+  height: 449px;
+  border-radius: 50%;
+  border: 3px dotted #a45607;
+  position: absolute;
+  top: 23px;
+  left: 23px;
+  box-shadow: 0 0 30px rgb(255, 13, 13);
+}
+
+/* REPEATED PATTERNS (middle & inner) */
+.hex1, .hex2, .hex3 {
+  position: absolute;
+  border-radius: 10px; /* slight smoothing */
+  clip-path: polygon(
+    50% 0%, 100% 25%, 100% 75%,
+    50% 100%, 0% 75%, 0% 25%
+  );
+  animation: spin 20s linear infinite;
+}
+
+/* ========== MIDDLE LAYER HEXAGONS (Layer 2 of Pookalam) ========== */
+/* These 9 hexagons spin slowly and add depth to the middle section */
+.hex1 {
+  /* styles */
+  width: 390px; height: 445px; top: 27px; left: 55px;
+  background: radial-gradient(circle, #ff5100, #af0505);
+  animation-duration: 18s; /* slightly different speed */
+}
+
+/* ========== INNER LAYER HEXAGONS (Layer 3 of Pookalam) ========== */
+/* Slightly smaller than the middle layer, rotating at a different speed */
+.hex2 {
+  /* styles */
+  width: 335px; height: 385px; top: 55px; left: 80px;
+  background: radial-gradient(circle, #f38304, #f59700);
+  animation-duration: 22s;
+}
+
+/* ========== CENTER LAYER HEXAGONS (Layer 4 of Pookalam) ========== */
+/* These are the innermost hexagons, closely surrounding the ॐ badge */
+.hex3 {
+  /* styles */
+  width: 285px; height: 324px; top: 86px; left: 105px;
+  background: radial-gradient(circle, #ff6600, #cc3300);
+  animation-duration: 26s;
+}
+
+/* ========== ANIMATION: Hexagon Spinning ========== */
+/* Used on .hex1, .hex2, .hex3 for subtle rotation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* INNER CIRCLES */
+.rect-circle2, .rect-circle3, .rect-circle4 {
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* ========== MIDDLE RING CIRCLE (Layer 2) ========== */
+/* This circle sits inside the outer ring and overlays the middle hexagons */
+.rect-circle2 {
+  /* styles */
+  background: radial-gradient(circle, #ffff33be, #6d7954);
+  width: 388px; height: 388px; top: 53px; left: 53px;
+  border: 1px dotted #9d320042;
+  box-shadow: 0 0 25px rgba(111, 169, 3, 0.763);
+}
+
+/* ========== INNER RING CIRCLE (Layer 3) ========== */
+/* Positioned inside the middle circle, behind the center badge and hexagons */
+.rect-circle3 {
+  /* styles */
+  background: radial-gradient(circle, #edbe00f0, #ff6600);
+  width: 328px; height: 328px; top: 83px; left: 83px;
+  border: 1px dotted #504d157e;
+  box-shadow: 0 0 25px rgba(255, 200, 0, 0.5);
+}
+
+/* ========== CENTER CIRCLE / BADGE BACKGROUND (Layer 4) ========== */
+/* This circle forms the background for the ॐ symbol at the center */
+.rect-circle4 {
+  /* styles */
+  background: radial-gradient(circle, #f9e00089, #b90404);
+  width: 280px; height: 280px; top: 108px; left: 108px;
+  border: 1px dotted #e57457;
+  box-shadow: 0 0 25px rgba(255, 64, 0, 0.997);
+}
+
+@media (max-width: 600px) {
+  .badge {
+    font-size: 70px;
+    top: 130px;
+    left: 130px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .diya {
+    width: 25px;
+    height: 15px;
+  }
+
+  .flame {
+    width: 8px;
+    height: 14px;
+    margin-top: -10px;
+  }
+}
+
+/* ========== DIYAS AROUND THE PATTTERN ========== */
+/* These diyas are placed symmetrically around the Pookalam */
+.diya {
+  /* Common diya styles: shape, color, inner shadow */
+  position: absolute;
+  width: 40px;
+  height: 25px;
+  background: #5a2e0d;
+  border-radius: 20px 20px 10px 10px;
+  box-shadow: inset -2px -2px 5px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transform-origin: 50% 50%;  /* Rotate around the center */
+}
+
+.flame {
+  /* Simulates a glowing flame using gradient and flicker animation */
+  width: 12px;
+  height: 20px;
+  background: radial-gradient(circle, #ffdb4d, #ff6600, transparent 70%);
+  border-radius: 50% 50% 50% 50%;
+  margin-top: -15px;
+  animation: flicker 0.15s infinite alternate;
+  box-shadow: 0 0 15px 5px #ff9933;
+}
+
+/* ========== ANIMATION: Flame Flicker Effect ========== */
+/* Flickering flame for diya flames to simulate real fire */
+@keyframes flicker {
+  0%   { transform: scaleY(1) scaleX(1); opacity: 0.9; }
+  50%  { transform: scaleY(1.2) scaleX(0.95); opacity: 0.7; }
+  100% { transform: scaleY(1.1) scaleX(1); opacity: 0.8; }
+}
+
+.badge {
+  position: relative;          /* Needed so pseudo-elements (::before, ::after) position correctly */
+  width: 250px;                /* Circle size */
+  height: 250px;
+  border-radius: 50%;          /* Makes the div circular */
+  background: transparent;           /* White background inside */
+  top:175px;
+  left:178px;
+  font-size: 110px;            /* Big font size for ॐ */
+  font-weight: bold;           
+  color: #972901;              /* Dark blue text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+}
+
+.badge::before {
+  content: "";
+  position: absolute;
+  right: 38px;
+  top:-65px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+  background: repeating-radial-gradient(
+    circle at 50%,       /* Start from the center */
+    #f44f78 -0 7px,      /* Red circles */
+    transparent 20px 80px
+  );
+  border-radius: 50%;   /* Keep circular */
+  z-index: 5;          /* Push it behind the main circle */
+}
+
+.badge::after {
+  content: "";
+  height:202px;
+  width:197px;
+  position:absolute;
+  inset: -33px;           /* Shrinks inside */
+  border: 7px dotted #ff703c; /* Orange outline */
+  border-radius: 50%;
+  z-index:1;          /* Behind the white circle but above scallops */
+  animation: rotateFlower 20s linear infinite;
+}
+
+/* ========== ANIMATION: Entry Fade and Scale Effect ========== */
+/* Optional effect to make the whole flower appear smoothly on page load */
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Diya positions — placed around the flower in radial symmetry */
+.d1 { top: -50px; left: 230px; } /* Top center */
+.d2 { top: 220px; left: -75px; } /* Left middle */
+.d3 { bottom: -70px; left: 230px; } /* Bottom center */
+.d4 { top: 220px; right: -75px; } /* Right middle */
+.d5 { top: 25px; left: 5px; } /* Top-left */
+.d6 { bottom: 50px; right:480px; } /* Bottom-right */
+.d7 { top: 25px; right: 10px; } /* Top-right */
+.d8 { bottom: 50px; left: 480px; } /* Bottom-left */
+.d9 { bottom: 240px; left: 230px; z-index:100; } /* Center bottom */
