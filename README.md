@@ -34,16 +34,16 @@ cd code-a-pookalam
 1. **HTML Structure:**
 I’ve created a basic HTML structure in the index.html file. The key elements are:
 
-A container (<div class="pookkalam">) that holds the entire pookkalam pattern.
+    A container (<div class="pookkalam">) that holds the entire pookkalam pattern.
 
-Several <div> elements within this container to represent individual segments of the design.
+    Several <div> elements within this container to represent individual segments of the design.
 
 2. **CSS Styling:**
 The styles are in styles.css. Some key features:
 
-Colorful Gradients: I used linear gradients to fill the pookkalam with vibrant colors.
+    Colorful Gradients: I used linear gradients to fill the pookkalam with vibrant colors.
 
-Geometric Patterns: Different CSS techniques like border-radius, transform, and animation have been used to create symmetrical patterns and smooth transitions.
+    Geometric Patterns: Different CSS techniques like border-radius, transform, and animation have been used to create symmetrical patterns and smooth transitions.
 
 3. **Animations:**
 I added a subtle animation to make the pookkalam feel more dynamic. It’s based on rotating elements and a gentle scaling effect to mimic the organic feel of traditional pookkalams.
